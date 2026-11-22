@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>PC Configurator - Сравнение</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">   
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="assets/icons/desktop_pc.svg" alt="Иконка ПК">
+                PC Configurator
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container" style="margin-top: 48px; margin-bottom: 64px;">
+        <div style="text-align: center; margin-bottom: 48px;">
+            <h1 style="font-size: 40px; margin: 0 0 12px 0;">Сравнение конфигураций</h1>
+            <p class="muted" style="font-size: 16px; margin: 0;">Сопоставьте комплектующие, итоговую стоимость и наличие — различия уже подсвечены.</p>
+        </div>
+
+        <!-- Карточки сборок -->
+        <div class="compare-cards">
+            <div class="compare-card">
+                <span class="compare-badge">Конфигурация А</span>
+                <h2>Игровой Старт</h2>
+                <p class="muted">Сбалансированная сборка для Full HD</p>
+                <div class="compare-price">124 990 ₽</div>
+                <div class="muted" style="font-size: 14px; margin-bottom: 16px;">В наличии в 18 магазинах</div>
+                <a href="#" class="btn btn-secondary" style="text-decoration: none; display: block; text-align: center;">Выбрать</a>
+            </div>
+            <div class="compare-card">
+                <span class="compare-badge">Конфигурация B</span>
+                <h2>Creator Pro</h2>
+                <p class="muted">Запас мощности для 1440p и работы</p>
+                <div class="compare-price">178 490 ₽</div>
+                <div class="muted" style="font-size: 14px; margin-bottom: 16px;">В наличии в 11 магазинах</div>
+                <a href="#" class="btn btn-primary" style="text-decoration: none; display: block; text-align: center;">Выбрать</a>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; margin-top: 32px;">
+            <div style="width: 16px; height: 16px; background-color: #E6EFFF; border-radius: 4px;"></div>
+            <span class="muted" style="font-size: 14px;">Подсвечены отличающиеся характеристики</span>
+        </div>
+
+        <!-- Таблица сравнения -->
+        <div class="compare-table">
+            <!-- Строка: Процессор -->
+            <div class="compare-row">
+                <div class="compare-label"><img src="assets/icons/cpu.svg" class="compare-icon"> Процессор</div>
+                <div class="compare-value diff">AMD Ryzen 5 7600<br><span class="muted">6 ядер · до 5.1 ГГц</span></div>
+                <div class="compare-value diff">Intel Core i5-14600KF<br><span class="muted">14 ядер · до 5.3 ГГц</span></div>
+            </div>
+            <!-- Строка: Видеокарта -->
+            <div class="compare-row">
+                <div class="compare-label"><img src="assets/icons/gpu.svg" class="compare-icon"> Видеокарта</div>
+                <div class="compare-value diff">GeForce RTX 4060 Ti 8 Гб<br><span class="muted">Full HD / 1440p</span></div>
+                <div class="compare-value diff">GeForce RTX 4070 12 Гб<br><span class="muted">1440p / 4K</span></div>
+            </div>
+            <!-- Строка: ОЗУ -->
+            <div class="compare-row">
+                <div class="compare-label"><img src="assets/icons/ram.svg" class="compare-icon"> Оперативная память</div>
+                <div class="compare-value diff">Kingston Fury 16 Гб DDR5<br><span class="muted">2 × 8 Гб · 5600 МГц</span></div>
+                <div class="compare-value diff">Kingston Fury 32 Гб DDR5<br><span class="muted">2 × 16 Гб · 6000 МГц</span></div>
+            </div>
+            <!-- Строка: Материнская плата -->
+            <div class="compare-row">
+                <div class="compare-label"><img src="assets/icons/motherboard.svg" class="compare-icon"> Материнская плата</div>
+                <div class="compare-value diff">MSI PRO B650M-B<br><span class="muted">AM5 · mATX</span></div>
+                <div class="compare-value diff">Gigabyte B760 Gaming X<br><span class="muted">LGA1700 · ATX</span></div>
+            </div>
+            <!-- Строка: Накопитель -->
+            <div class="compare-row">
+                <div class="compare-label"><img src="assets/icons/ssd.svg" class="compare-icon"> Накопитель</div>
+                <div class="compare-value diff">WD Blue SN580 1 Тб<br><span class="muted">NVMe · 4150 МБ/с</span></div>
+                <div class="compare-value diff">Samsung 990 EVO 1 Тб<br><span class="muted">NVMe · 5000 МБ/с</span></div>
+            </div>
+            <!-- Строка: Корпус -->
+            <div class="compare-row">
+                <div class="compare-label"><img src="assets/icons/pc_case.svg" class="compare-icon"> Корпус</div>
+                <div class="compare-value diff">DeepCool CH370<br><span class="muted">mATX · 2 вентилятора</span></div>
+                <div class="compare-value diff">Montech Air 903 Max<br><span class="muted">ATX · 4 вентилятора</span></div>
+            </div>
+            <!-- Строка: Блок питания -->
+            <div class="compare-row">
+                <div class="compare-label"><img src="assets/icons/extra.svg" class="compare-icon"> Блок питания</div>
+                <div class="compare-value diff">DeepCool PK650D · 650 Вт<br><span class="muted">80 Plus Bronze</span></div>
+                <div class="compare-value diff">be quiet! Pure Power 12 M · 750 Вт<br><span class="muted">80 Plus Gold</span></div>
+            </div>
+            <!-- Строка: Итого -->
+            <div class="compare-row total">
+                <div class="compare-label">Итого</div>
+                <div class="compare-value">124 990 ₽</div>
+                <div class="compare-value">178 490 ₽</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="assets/icons/desktop_pc.svg" alt="Иконка ПК" height="40px" width="40px">
+                        PC Configurator
+                    </div>
+                    <p class="secondary">
+                        Помогаем подобрать совместимые комплектующие и собрать ПК без лишних сомнений.
+                    </p>
+                </div>
+                <div class="footer-navigation">
+                    <a href="index.html">Главная</a>
+                    <a href="configurator.html">Конфигуратор</a>
+                    <a href="ready.html">Готовые конфигурации</a>
+                    <a href="about.html">О нас</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="secondary">© 2026 PC Configurator</p>
+                <div class="group-horizontal">
+                    <a>Политика конфиденциальности</a>
+                    <a>Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

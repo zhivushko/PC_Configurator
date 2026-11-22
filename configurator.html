@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>PC Configurator - Конфигуратор</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">   
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="assets/icons/desktop_pc.svg" alt="Иконка ПК">
+                PC Configurator
+            </div>
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="configurator-layout">
+        <!-- Левая часть -->
+        <div class="config-left">
+            
+            <!-- 1. Обернули заголовки в отдельный блок -->
+            <div class="config-header">
+                <div class="breadcrumbs">
+                    <img src="assets/icons/close.svg" alt="Закрыть" class="breadcrumb-icon">
+                    <span class="secondary">Конфигуратор</span>
+                </div>
+                
+                <h1 class="config-title">Конфигуратор</h1>
+                <p class="config-subtitle">Обязательные комплектующие: 0/6</p>
+            </div>
+
+            <!-- 2. Таблица теперь идет отдельно -->
+            <div class="components-list">
+                <!-- Процессор -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/cpu.svg" alt="Процессор" class="component-icon">
+                        <span>Процессор</span>
+                    </div>
+                    <div class="component-action">
+                        <span class="required-label">*обязательно</span>
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- Видеокарта -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/gpu.svg" alt="Видеокарта" class="component-icon">
+                        <span>Видеокарта</span>
+                    </div>
+                    <div class="component-action">
+                        <span class="required-label">*обязательно</span>
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- SSD -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/ssd.svg" alt="SSD" class="component-icon">
+                        <span>SSD</span>
+                    </div>
+                    <div class="component-action">
+                        <span class="required-label">*обязательно</span>
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- RAM -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/ram.svg" alt="RAM" class="component-icon">
+                        <span>RAM</span>
+                    </div>
+                    <div class="component-action">
+                        <span class="required-label">*обязательно</span>
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- Мат. плата -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/motherboard.svg" alt="Мат. плата" class="component-icon">
+                        <span>Мат. плата</span>
+                    </div>
+                    <div class="component-action">
+                        <span class="required-label">*обязательно</span>
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- Корпус -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/pc_case.svg" alt="Корпус" class="component-icon">
+                        <span>Корпус</span>
+                    </div>
+                    <div class="component-action">
+                        <span class="required-label">*обязательно</span>
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- Монитор -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/monitor.svg" alt="Монитор" class="component-icon">
+                        <span>Монитор</span>
+                    </div>
+                    <div class="component-action">
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- Периферия -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/keyboard.svg" alt="Периферия" class="component-icon">
+                        <span>Периферия</span>
+                    </div>
+                    <div class="component-action">
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+
+                <!-- Доп. компоненты -->
+                <div class="component-item">
+                    <div class="component-info">
+                        <img src="assets/icons/extra.svg" alt="Доп. компоненты" class="component-icon">
+                        <span>Доп. компоненты</span>
+                    </div>
+                    <div class="component-action">
+                        <button class="btn-add">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая часть -->
+        <div class="config-right">
+            <div class="info-box">
+                <div class="info-item">
+                    <div class="info-title">1. Выберите обязательные комплектующие</div>
+                    <div class="info-text">Начинайте с любой категории</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-title">2. Выберите периферию (по желанию)</div>
+                    <div class="info-text">При необходимости добавьте в сборку аксессуары, адаптеры, девайсы и др.</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-title">3. Оцените сборку</div>
+                    <div class="info-text">Посмотрите цену, сравните конфигурации и сделайте выбор</div>
+                </div>
+            </div>
+            <div class="comparison-block">
+                <h3>Сравнение конфигураций:</h3>
+                <div class="comparison-buttons">
+                    <button class="btn-compare blue">Сравнить с готовой</button>
+                    <button class="btn-compare white">Добавить новую</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="assets/icons/desktop_pc.svg" alt="Иконка ПК" height="40px" width="40px">
+                        PC Configurator
+                    </div>
+                    <p class="secondary">
+                        Помогаем подобрать совместимые
+                        комплектующие и собрать ПК без
+                        лишних сомнений.
+                    </p>
+                </div>
+                    
+                <div class="footer-navigation">
+                    <a>Главная</a>
+                    <a>Конфигуратор</a>
+                    <a>Готовые конфигурации</a>
+                    <a>О нас</a>
+                    <a>Контакты</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="secondary">© 2026 PC Configurator</p>
+                <div class="group-horizontal">
+                    <a>Политика конфиденциальности</a>
+                    <a>Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

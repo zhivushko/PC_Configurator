@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>PC Configurator - Выбор видеокарты</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">   
+</head>
+<body>
+    <!-- ШАПКА (без изменений) -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="assets/icons/desktop_pc.svg" alt="Иконка ПК">
+                PC Configurator
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- НОВЫЙ КОНТЕНТ: КАТАЛОГ -->
+    <main class="catalog-layout">
+        
+        <!-- Левая колонка: Поиск и список товаров -->
+        <div class="catalog-left">
+            <!-- Поисковая строка -->
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск" class="search-input">
+                <button class="search-clear-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#86B6FF" stroke-width="2"/>
+                        <path d="M15 9L9 15M9 9L15 15" stroke="#86B6FF" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <p class="popular-title">Популярный выбор:</p>
+
+            <!-- Список карточек товаров -->
+            <div class="product-list">
+                <!-- Карточка 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/icons/gpu.svg" alt="Видеокарта" class="gpu-image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Asus ROG GTX 1090 ti</h3>
+                        <div class="product-specs">
+                            <p>Интерфейс: Pci Express 5.0</p>
+                            <p>Тип памяти GDDR 5</p>
+                            <p>Частота: 1487 МГц</p>
+                            <p>Объём памяти: 15 Гб</p>
+                        </div>
+                        <div class="product-price">45 000 ₽</div>
+                    </div>
+                    <div class="product-action">
+                        <button class="btn-add-product">Добавить</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/icons/gpu.svg" alt="Видеокарта" class="gpu-image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Nvidia GeForce RTX 4080</h3>
+                        <div class="product-specs">
+                            <p>Интерфейс: Pci Express 5.0</p>
+                            <p>Тип памяти GDDR 6X</p>
+                            <p>Частота: 2500 МГц</p>
+                            <p>Объём памяти: 16 Гб</p>
+                        </div>
+                        <div class="product-price">89 000 ₽</div>
+                    </div>
+                    <div class="product-action">
+                        <button class="btn-add-product">Добавить</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/icons/gpu.svg" alt="Видеокарта" class="gpu-image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">AMD Radeon RX 7900 XT</h3>
+                        <div class="product-specs">
+                            <p>Интерфейс: Pci Express 5.0</p>
+                            <p>Тип памяти GDDR 6</p>
+                            <p>Частота: 2400 МГц</p>
+                            <p>Объём памяти: 24 Гб</p>
+                        </div>
+                        <div class="product-price">72 000 ₽</div>
+                    </div>
+                    <div class="product-action">
+                        <button class="btn-add-product">Добавить</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/icons/gpu.svg" alt="Видеокарта" class="gpu-image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Intel Arc A770</h3>
+                        <div class="product-specs">
+                            <p>Интерфейс: Pci Express 5.0</p>
+                            <p>Тип памяти GDDR 6</p>
+                            <p>Частота: 2100 МГц</p>
+                            <p>Объём памяти: 16 Гб</p>
+                        </div>
+                        <div class="product-price">38 000 ₽</div>
+                    </div>
+                    <div class="product-action">
+                        <button class="btn-add-product">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка: Фильтры -->
+        <div class="catalog-right">
+            <div class="filters-header">
+                <img src="assets/icons/filter_list.svg" alt="filters">
+                <h3>Фильтры</h3>
+            </div>
+
+            <div class="filters-box">
+                <!-- Фильтр: Производитель -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Производитель</h4>
+                    <label class="filter-checkbox"><input type="checkbox"> AMD</label>
+                    <label class="filter-checkbox"><input type="checkbox"> Nvidia</label>
+                    <label class="filter-checkbox"><input type="checkbox"> Intel</label>
+                </div>
+
+                <!-- Фильтр: Память -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Память</h4>
+                    <label class="filter-checkbox"><input type="checkbox"> 4 Гб</label>
+                    <label class="filter-checkbox"><input type="checkbox"> 8 Гб</label>
+                    <label class="filter-checkbox"><input type="checkbox"> 16 Гб</label>
+                </div>
+
+                <!-- Фильтр: Вендор -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Вендор</h4>
+                    <label class="filter-checkbox"><input type="checkbox"> Asus</label>
+                    <label class="filter-checkbox"><input type="checkbox"> Gigabyte</label>
+                    <label class="filter-checkbox"><input type="checkbox"> MSI</label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ФУТЕР (без изменений) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="assets/icons/desktop_pc.svg" alt="Иконка ПК" height="40px" width="40px">
+                        PC Configurator
+                    </div>
+                    <p class="secondary">
+                        Помогаем подобрать совместимые
+                        комплектующие и собрать ПК без
+                        лишних сомнений.
+                    </p>
+                </div>
+                    
+                <div class="footer-navigation">
+                    <a>Главная</a>
+                    <a>Конфигуратор</a>
+                    <a>Готовые конфигурации</a>
+                    <a>О нас</a>
+                    <a>Контакты</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="secondary">© 2026 PC Configurator</p>
+                <div class="group-horizontal">
+                    <a>Политика конфиденциальности</a>
+                    <a>Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

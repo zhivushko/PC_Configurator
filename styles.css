@@ -1,0 +1,1178 @@
+/* Сброс базовых отступов, чтобы они не мешали */
+* {
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    color: #000;
+    background-color: #F6F8FC;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Такой же padding, как у configurator-layout */
+    width: 100%;
+}
+/* --- Шапка --- */
+header {
+    border-bottom: 1px solid #D3DEEC;
+    /* Убрали padding отсюда, он теперь в .container */
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.logo {
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu ul {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul a {
+    font-family: inherit;     
+    font-weight: normal;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --- Основной блок --- */
+.main-block {
+    /* Убираем padding по бокам, используем max-width и margin: 0 auto для центрирования контента */
+    max-width: 800px; 
+    margin: 64px auto 0; /* Отступ сверху 64px, авто по бокам (центрирование), 0 снизу */
+    display: flex;
+    flex-direction: column; /* Выстраиваем элементы друг под другом */
+    align-items: center;    /* Центрируем всё по горизонтали */
+    gap: 32px;              /* Расстояние между группами (текст и кнопки) */
+    text-align: center;     /* Текст по центру */
+}
+
+/* Группировка текста */
+.group-vertical {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    /* Вот здесь задаем правильные отступы между текстами */
+    gap: 16px; 
+}
+.group-horizontal
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+/* Убираем встроенные отступы у параграфов и заголовков */
+.group-vertical p,
+.group-vertical h1 {
+    margin: 0;
+}
+
+.subtitle {
+    color: #7A8290; /* Серый цвет для "вторичного" текста, как вы хотели */
+    font-size: 20px;
+}
+
+.main-title {
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 1.1; /* Чтобы строки в заголовке не были слишком далеко друг от друга */
+}
+
+.description {
+    font-size: 32px;
+    line-height: 1.4;
+}
+.secondary {
+    color: #6c757d;
+}
+
+.buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+}
+
+.btn {
+    font-family: inherit;
+    font-size: 18px;
+    padding: 16px 32px;
+    border-radius: 50px; /* Овальные кнопки */
+    cursor: pointer;
+    width: 320px; /* Фиксированная ширина, как на макете */
+    border: 1px solid transparent;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background-color: #86B6FF; /* Светло-синий */
+    color: #000;
+    border-color: #A3C0F8;
+}
+
+.btn-secondary {
+    background-color: #E6EFFF;
+    color: #000;
+    border-color: #6F9EF0; /* Синяя обводка */
+}
+
+footer {
+    background-color: #E7EFFC;
+    padding-top: 36px;
+}
+footer .logo
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+.footer-content
+{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+
+}
+.footer-brand
+{   
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 280px;
+}
+
+.footer-navigation{
+    display: flex;
+    gap: 20px;
+}
+.footer-bottom
+{
+    padding-top: 16px;
+    border-top: 1px solid #D3DEEC;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-bottom a
+{
+    color: #7A8290;
+}
+/* =========================================
+   СТИЛИ ДЛЯ СТРАНИЦЫ КОНФИГУРАТОРА
+   ========================================= */
+
+/* Обновленный родительский контейнер */
+/* Обновленный родительский контейнер */
+.configurator-layout {
+    max-width: 1200px;
+    margin: 32px auto 64px;
+    padding: 0 20px;
+    display: grid;
+    /* Левая колонка (1fr) и правая (400px) */
+    grid-template-columns: 1fr 400px; 
+    /* Две строки: первая под заголовки, вторая под таблицу */
+    grid-template-rows: auto auto; 
+    column-gap: 24px;
+    row-gap: 24px; /* Расстояние между заголовком и таблицей */
+    align-items: start;
+}
+
+/* Магия: "растворяем" обертку левой колонки, чтобы дети встали в общую сетку */
+.config-left {
+    display: contents; 
+}
+
+/* Заголовки встают в первую строку левой колонки */
+.config-header {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Таблица встает во вторую строку левой колонки */
+.components-list {
+    grid-column: 1;
+    grid-row: 2;
+    /* Ваши старые стили для таблицы (border, radius, background и т.д.) оставляем тут */
+}
+
+/* Правая колонка начинается со второй строки (ровно с таблицей) */
+.config-right {
+    grid-column: 2;
+    grid-row: 2; /* <--- ВОТ ГЛАВНОЕ ИЗМЕНЕНИЕ */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Магия: "растворяем" обертку левой колонки, чтобы дети встали в общую сетку */
+.config-left {
+    display: contents; 
+}
+
+/* Заголовки встают в первую строку левой колонки */
+.config-header {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Таблица встает во вторую строку левой колонки */
+.components-list {
+    grid-column: 1;
+    grid-row: 2;
+    /* Ваши старые стили для таблицы (border, radius, background и т.д.) оставляем тут */
+}
+
+/* Правая колонка начинается со второй строки (ровно с таблицей) */
+.config-right {
+    grid-column: 2;
+    grid-row: 2; /* <--- ВОТ ГЛАВНОЕ ИЗМЕНЕНИЕ */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.breadcrumb-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+
+.config-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.config-subtitle {
+    color: #000;
+    font-size: 18px;
+    margin: 0 0 24px 0;
+}
+
+.components-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden; /* Чтобы дочерние элементы не вылезали за скругленные углы */
+}
+
+.component-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #D3DEEC;
+    transition: background-color 0.2s;
+}
+
+.component-item:last-child {
+    border-bottom: none;
+}
+
+.component-item:hover {
+    background-color: #F6F8FC;
+}
+
+.component-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+}
+
+.component-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.component-action {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.required-label {
+    color: #7A8290;
+    font-size: 12px;
+}
+
+.btn-add {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #86B6FF;
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+    background-color: #E6EFFF;
+}
+
+/* Правая колонка */
+.config-right {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.info-box {
+    background-color: #E2F4E4; /* Светло-зеленый фон */
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* gap 1 = 10px (если вы имели в виду стандартный шаг сетки). Если нужен строго 1px, поставьте 1px */
+}
+
+/* Стили для каждого пункта */
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Расстояние между жирным текстом и описанием */
+    padding: 10px; /* Отступы со всех сторон */
+    /* Опционально: можно добавить легкий фон или скругление для самих карточек, если нужно */
+}
+
+/* Стили для верхнего жирного текста */
+.info-title {
+    font-weight: bold;
+    color: #000;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+/* Стили для нижнего текста */
+.info-text {
+    color: #000; /* Или другой цвет, если нужен менее контрастный */
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.comparison-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comparison-block h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.comparison-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-compare {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+}
+
+.btn-compare:hover {
+    opacity: 0.8;
+}
+
+.btn-compare.blue {
+    background-color: #86B6FF;
+    border: 1px solid #86B6FF;
+    color: #000;
+}
+
+.btn-compare.white {
+    background-color: transparent;
+    border: 1px solid #86B6FF;
+    color: #000;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 900px) {
+    .configurator-layout {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================
+   СТИЛИ ДЛЯ СТРАНИЦЫ КАТАЛОГА (ВЫБОР КОМПЛЕКТУЮЩИХ)
+   ========================================= */
+
+.catalog-layout {
+    max-width: 1200px;
+    margin: 32px auto 64px;
+    padding: 0 20px;
+    display: grid;
+    /* Левая колонка (1fr) и правая (35%) */
+    grid-template-columns: 1fr 35%; 
+    column-gap: 24px;
+    align-items: start;
+}
+
+/* --- Левая колонка --- */
+.catalog-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Поиск */
+.search-bar {
+    position: relative;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 18px;
+    font-family: inherit;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    background-color: #fff;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #86B6FF;
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popular-title {
+    font-size: 16px;
+    color: #6c757d;
+    margin: 8px 0 0 0;
+}
+
+/* Карточки товаров */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 24px;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    gap: 24px;
+    position: relative;
+}
+
+.product-image {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gpu-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 12px 0;
+}
+
+.product-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #6c757d;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.product-specs p {
+    margin: 0;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: auto; /* Прижимает цену к низу */
+}
+
+.product-action {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.btn-add-product {
+    padding: 10px 24px;
+    background-color: transparent;
+    border: 1px solid #D3DEEC;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-add-product:hover {
+    background-color: #F6F8FC;
+    border-color: #86B6FF;
+}
+
+/* --- Правая колонка (Фильтры) --- */
+.catalog-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 24px; /* Чтобы фильтры не уезжали при скролле (опционально) */
+}
+
+.filters-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filters-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.filters-box {
+    background-color: #DDF4E8; /* Светло-зеленый фон */
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    /* gap: 12px; */
+}
+
+.filter-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.filter-checkbox input[type="checkbox"] {
+    appearance: none; /* Убираем стандартный чекбокс браузера */
+    width: 20px;
+    height: 20px;
+    border: 1px solid #D3DEEC;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-checkbox input[type="checkbox"]:checked {
+    background-color: #fff;
+}
+
+/* Рисуем галочку через псевдоэлемент */
+.filter-checkbox input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: #000;
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Адаптивность для планшетов и телефонов */
+@media (max-width: 900px) {
+    .catalog-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 64px; /* Освобождаем место для кнопки сверху */
+    }
+    
+    .product-action {
+        top: 16px;
+        right: 16px;
+    }
+}
+
+/* =========================================
+   СТИЛИ ДЛЯ КАРТОЧКИ ТОВАРА (PRODUCT)
+   ========================================= */
+.product-layout {
+    max-width: 1200px;
+    margin: 32px auto 64px;
+    padding: 0 20px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-text {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.product-main-card {
+    display: flex;
+    gap: 24px;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.product-hero-image {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpu-hero {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.product-hero-info h2 {
+    font-size: 24px;
+    margin: 0 0 16px 0;
+    font-weight: normal;
+}
+
+.hero-specs p {
+    margin: 0 0 4px 0;
+    color: #6c757d;
+}
+
+.hero-price {
+    font-size: 24px;
+    margin-top: 16px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.hero-actions .btn {
+    font-weight: normal;
+    text-align: center;
+}
+
+.disclaimer {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+.link-text {
+    color: #000;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 32px 0 16px 0;
+}
+
+/* Таблица характеристик */
+.specs-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.spec-row {
+    display: flex;
+    padding: 16px 24px;
+    border-bottom: 1px solid #D3DEEC;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-key {
+    width: 30%;
+    color: #6c757d;
+}
+
+.spec-val {
+    width: 70%;
+    color: #000;
+}
+
+.bottom-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.bottom-text {
+    font-size: 16px;
+}
+
+/* =========================================
+   СТИЛИ ДЛЯ МАГАЗИНОВ (STORES)
+   ========================================= */
+.stores-layout {
+    max-width: 1200px;
+    margin: 32px auto 64px;
+    padding: 0 20px;
+}
+
+.store-product-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.store-gpu-img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+.store-product-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.store-product-info p {
+    margin: 0 0 4px 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.store-product-price {
+    font-size: 20px;
+    margin-top: 12px;
+    color: #000;
+}
+
+.store-product-card .btn-add-product {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.stores-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.sort-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sort-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.filter-pill {
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid #D3DEEC;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.filter-pill.active {
+    background-color: #86B6FF;
+    border-color: #86B6FF;
+    color: #000;
+}
+
+.city-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.city-input {
+    padding: 10px 16px;
+    border: 1px solid #D3DEEC;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    width: 250px;
+    outline: none;
+}
+
+.stores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.store-offer-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.store-offer-info h3 {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.store-offer-info p {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+}
+
+.muted {
+    color: #6c757d;
+}
+
+.offer-price {
+    font-size: 18px;
+    margin-top: 12px !important;
+}
+
+.offer-price span {
+    color: #6c757d;
+}
+
+.store-offer-action {
+    text-align: center;
+}
+/* =========================================
+   СТИЛИ ДЛЯ ОСТАЛЬНЫХ СТРАНИЦ
+   ========================================= */
+
+/* =========================================
+   Сравнение (COMPARE)
+   ========================================= */
+.compare-cards {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.compare-card {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.compare-badge {
+    background-color: #E2F4E4;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: fit-content;
+    margin-bottom: 16px;
+}
+
+.compare-card h2 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.compare-price {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 16px 0 8px 0;
+}
+
+.compare-table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.compare-row {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    padding: 20px 24px;
+    align-items: flex-start;
+}
+
+.compare-row.total {
+    background-color: #E6EFFF;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.compare-label {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+}
+
+.compare-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.compare-value {
+    width: 37.5%;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.compare-value.diff {
+    background-color: #F6F8FC;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-left: 12px;
+}
+
+/* =========================================
+   О нас (ABOUT)
+   ========================================= */
+.badge-green {
+    background-color: #E2F4E4;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.mini-spec-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.mini-spec-row span {
+    margin-left: auto;
+    color: #000;
+    font-weight: bold;
+}
+
+.mini-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.features-grid {
+    display: flex;
+    gap: 24px;
+}
+
+.feature-card {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature-icon-box {
+    width: 48px;
+    height: 48px;
+    background-color: #E6EFFF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.feature-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.steps-grid {
+    display: flex;
+    gap: 24px;
+}
+
+.step-card {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #D3DEEC;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.step-num {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.step-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.step-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Адаптивность для новых страниц */
+@media (max-width: 900px) {
+    .compare-cards, .features-grid, .steps-grid {
+        flex-direction: column;
+    }
+    .compare-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .compare-label, .compare-value {
+        width: 100%;
+    }
+    .compare-value.diff {
+        margin-left: 0;
+    }
+    .contacts-layout {
+        flex-direction: column;
+    }
+}
